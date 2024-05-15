@@ -1,51 +1,47 @@
-const path = require("path");
+const { join, resolve } = require('path');
 
-module.exports = {
-    entry: {
-        backgroundPage: path.join(__dirname, "src/backgroundPage.ts"),
-        popup: path.join(__dirname, "src/popup/index.tsx"),
-    },
-    output: {
-        path: path.join(__dirname, "dist/js"),
-        filename: "[name].js",
-    },
-    module: {
-        rules: [
-            {
-                exclude: /node_modules/,
-                test: /\.tsx?$/,
-                use: "ts-loader",
+/** @type {import('webpack').Configuration} */
+const config = {
+  entry: {
+    background: join(__dirname, 'src/background/index.ts'),
+    popup: join(__dirname, 'src/popup/index.tsx'),
+  },
+  module: {
+    rules: [
+      {
+        exclude: /node_modules/,
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+      },
+      {
+        test: /\app.css$/,
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.module.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
             },
-            // Treat src/css/app.css as a global stylesheet
-            {
-                test: /\app.css$/,
-                use: [
-                    "style-loader",
-                    "css-loader",
-                    "postcss-loader",
-                ],
-            },
-            // Load .module.css files as CSS modules
-            {
-                test: /\.module.css$/,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            modules: true,
-                        },
-                    },
-                    "postcss-loader",
-                ],
-            },
+          },
+          'postcss-loader',
         ],
+      },
+    ],
+  },
+  output: {
+    filename: '[name].js',
+    path: join(__dirname, 'dist/js'),
+  },
+  resolve: {
+    alias: {
+      '@src': resolve(__dirname, 'src/'),
     },
-    // Setup @src path resolution for TypeScript files
-    resolve: {
-        extensions: [".ts", ".tsx", ".js"],
-        alias: {
-            "@src": path.resolve(__dirname, "src/"),
-        },
-    },
+    extensions: ['.ts', '.tsx', '.js'],
+  },
 };
+
+module.exports = config;

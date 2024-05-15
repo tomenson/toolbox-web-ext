@@ -1,36 +1,37 @@
 {
-    "compilerOptions": {
-        "allowSyntheticDefaultImports": true,
-        "module": "es2015",
-        "target": "es5",
-        "lib": ["es6", "dom"],
-        "sourceMap": true,
-        "allowJs": false,
-        "jsx": "react",
-        "moduleResolution": "node",
-        "rootDir": "../",
-        "baseUrl": "../",
-        "paths": {
-            "@src/*": ["src/*"]
-        },
-        "outDir": "dist",
-        "noImplicitReturns": true,
-        "noImplicitThis": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "declaration": true
+  "compilerOptions": {
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "../",
+    "jsx": "react",
+    "lib": ["ES2021", "DOM"],
+    "module": "ES2020",
+    "moduleResolution": "node",
+    "paths": {
+      "@src/*": ["src/*"]
     },
-    "include": ["../src/**/*"],
-    "exclude": [
-        "node_modules",
-        "build",
-        "dist",
-        "scripts",
-        "acceptance-tests",
-        "webpack",
-        "jest",
-        "src/setupTests.ts",
-        "**/*/*.test.ts",
-        "examples"
-    ]
+    "rootDir": "../",
+    "sourceMap": true,
+    "target": "ES2021",
+    "declaration": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "outDir": "dist",
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": true
+  },
+  "include": ["../src/**/*"],
+  "exclude": [
+    "**/*/*.test.ts",
+    "acceptance-tests",
+    "build",
+    "dist",
+    "examples",
+    "jest",
+    "node_modules",
+    "scripts",
+    "src/setupTests.ts",
+    "webpack"
+  ]
 }

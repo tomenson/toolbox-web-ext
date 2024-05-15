@@ -1,20 +1,21 @@
 {
-    "compilerOptions": {
-        "baseUrl": "./",
-        "paths": {
-            "@src/*": ["src/*"]
-        },
-        "target": "es5",
-        "module": "commonjs",
-        "moduleResolution": "node",
-        "rootDir": "./src",
-        "outDir": "dist/js",
-        "strict": true,
-        "sourceMap": true,
-        "jsx": "react",
-        "esModuleInterop": true,
-        "lib": ["es2015", "dom"],
-        "experimentalDecorators": true,
-        "allowSyntheticDefaultImports": true
-    }
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "lib": ["ES2021", "DOM"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "dist/js",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
+    "rootDir": "./src",
+    "sourceMap": true,
+    "strict": true,
+    "target": "ES2021",
+    "useUnknownInCatchVariables": true
+  }
 }

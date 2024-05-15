@@ -1,8 +1,10 @@
-module.exports = {
-  purge: ["./src/**/*.{js,jsx,ts,tsx}", "./dist/popup.html"],
-  content: ["./src/**/*.{html,js,tsx}"],
+const config = {
+  content: ['./src/**/*.{html,js,tsx}'],
+  plugins: [],
+  purge: ['./src/**/*.{js,jsx,ts,tsx}', './dist/popup.html'],
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+};
+
+module.exports = config;
