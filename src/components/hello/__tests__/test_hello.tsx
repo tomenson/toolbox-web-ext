@@ -1,8 +1,11 @@
-import * as React from "react";
-import { Hello } from "../component";
-import renderer from "react-test-renderer";
+import React from 'react';
+import renderer from 'react-test-renderer';
 
-it("component renders", () => {
+import { Hello } from '../component';
+
+describe('hello component', () => {
+  it('renders', () => {
     const tree = renderer.create(<Hello />).toJSON();
     expect(tree).toMatchSnapshot();
+  });
 });
